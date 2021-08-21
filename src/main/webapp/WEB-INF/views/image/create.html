@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Image</title>
+
+</head>
+<body>
+<h1>Create image</h1>
+<p>
+    <a href="/image">Image list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/image/save}" th:object="${imageForm}" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <label>Image</label>
+            <input type="file" th:multiple="multiple" th:field="*{fileName}"/>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create image"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
